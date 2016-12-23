@@ -1,0 +1,22 @@
+.in-cl-login{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 500px;
+    
+    .in-cl-box-login{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+.form-group {
+    margin-button: 15px;
+}

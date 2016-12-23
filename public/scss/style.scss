@@ -1,0 +1,22 @@
+//sass --watch public/scss/style.scss:public/css/style.css
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700');
+@import 'login';
+/*var*/
+$primary-color: #00ABFD;
+$dark-primary-color: #5078F0;
+$light-primary-color: #00C2C0;
+$accent-color: #FF5939;
+$text-icons-color: #FFFFFF;
+$primary-text: #212121;
+$secundary-text: #757575;
+$divider-color: #BDBDBD;
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+body{
+    fonts-family: 'Source Sans Pro';
+    fonts-size: 12pt;
+}
