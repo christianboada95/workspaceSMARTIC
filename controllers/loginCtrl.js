@@ -1,10 +1,9 @@
-app.controller("loginController", function($scope, $http, $location){ //, $location, $http
-   
+app.controller("LoginController", function($scope, $http, $location, $cookies){ //, $location, $http
+    
    $scope.login = function(){
-
-        var username = $scope.username;
-        var password = $scope.password;
        
+       var username = $scope.username;
+       var password = $scope.password;
         $http({
           method: 'POST',
           url: 'http://localhost/smartic/public/login',
@@ -20,16 +19,52 @@ app.controller("loginController", function($scope, $http, $location){ //, $locat
             //busca el token en la respuesta del servidor
             var token = response.data.response.token;
             //almacena el token en localStorage
-            localStorage.setItem("token", token)
+            //$cookie.put("logged-in", username);
+            localStorage.setItem("token", token);
+            console.log(token);
             $location.path('/dashboard'); 
-          }, function errorCallback(response) {
+        }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
+            $location.path('/login');
             console.log("bad");
+            alert("error");
+        });
+   }
+   
+   
+});   
+
+app.controller("LogoutController", function($scope, $http, $location){
+    
+    $scope.logout = function() {
+       
+       $http({
+          method: 'GET',
+          url: 'http://localhost/smartic/public/logout',
+          headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+        }).then(function successCallback(response) {
+          
+            console.log("good");
+            console.log(response);
+            
+          }, function errorCallback(response) {
+         
+            console.log("bad");
+            alert("algo salió mal");
           });
    }
+});
+
+app.controller("SignUpController", function($scope, $http, $location){
+   
+    
+});
+
    //Resquet a list of users
-   $scope.getUsers = function() {
+   /*$scope.getUsers = function() {
        
        $http({
           method: 'GET',
@@ -48,28 +83,10 @@ app.controller("loginController", function($scope, $http, $location){ //, $locat
             // or server returns response with an error status.
             console.log("bad");
           });
-   }
+   }*/
    
-   $scope.logout = function() {
-       
-       $http({
-          method: 'GET',
-          url: 'http://localhost/smartic/public/logout',
-          headers: {
-              'Content-Type': undefined,
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-          }
-        }).then(function successCallback(response) {
-          
-            console.log("good");
-            console.log(response);
-            
-          }, function errorCallback(response) {
-         
-            console.log("bad");
-            console.log(response);
-          });
-   }
+   
+   //$scope.singup
    
    /*
    $scope.signin = function() {
@@ -163,4 +180,3 @@ app.controller("loginController", function($scope, $http, $location){ //, $locat
             });
     };*/
    
-});
