@@ -10,14 +10,15 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    }
     .in-cl-login .in-cl-box-login img {
       border-radius: 50%;
       width: 100px;
       height: 100px; }
 
 .form-group {
-  margin-button: 15px; }
+  /*margin-button: 15px;*/ }
 
 /*var*/
 * {
@@ -25,7 +26,46 @@
   padding: 0px; }
 
 body {
-  fonts-family: 'Source Sans Pro';
-  fonts-size: 12pt; }
-
+  font-family: 'Source Sans Pro';
+  font-size: 12pt; 
+  font-style: normal;
+  
+  
+  background: #00ABFD;}
 /*# sourceMappingURL=style.css.map */
+
+input {
+  position: relative;
+  display: inline-block;
+  padding: 8px 0px;
+  margin: .3em 0 1em 0;
+  width: 100%;
+  
+  border: 0;
+  border-radius: 5px;
+}
+
+.in-cl-userName {
+  font-size: 24pt;
+  color: #fff;
+}
+.in-cl-userSchool{
+  color: #fff;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  padding: 8px 24px;
+  margin: .3em 0 1em 0;
+  width: 100%;
+  
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  background: #5078F0;
+  
+  
+}
+
+

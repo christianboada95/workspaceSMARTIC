@@ -4,24 +4,30 @@
     <span class="in-cl-userName">Carla Rodriguez</span>
     <span class="in-cl-userSchool">Corazones Felices</span>
     
-      <form id="myLogin">
-        <div class="form-group">
-          <input type="text" class="form-control" id="username" ng-model="username" placeholder="Documento">
-        </div>
-        <br>
-        <div class="form-group">
-          <input type="password" class="form-control" id="password" ng-model="password" placeholder="Contraseña">
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox">Recordarme</label>
-        </div>
+    <form id="myLogin">
+      <div >
+        <input type="text" id="username" ng-model="username" placeholder="Documento">
+      </div>
+      <div >
+        <input type="password"  id="password" ng-model="password" placeholder="Contraseña">
+      </div>
+<!--
+      <div class="checkbox">
+        <label><input type="checkbox">Recordarme</label>
+      </div>
+-->
+      <div>
         <button class="btn btn-default" ng-click="login()" >Entrar</button>
+<!--
         <button class="btn btn-default" ng-click="getUsers()" >get users</button>
         <button class="btn btn-default" ng-click="logout()" >Salir</button>
-      </form>
+-->
+      </div>
+    </form>
     
   </div>
 </div>
+
 
 <footer>
   
