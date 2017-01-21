@@ -31,9 +31,11 @@ body {
   font-style: normal;
   
   
-  background: #00ABFD;}
+  /*background: #00ABFD;*/
+  background: #eee;}
 /*# sourceMappingURL=style.css.map */
 
+/*
 input {
   position: relative;
   display: inline-block;
@@ -44,6 +46,7 @@ input {
   border: 0;
   border-radius: 5px;
 }
+*/
 
 .in-cl-userName {
   font-size: 24pt;
@@ -53,6 +56,7 @@ input {
   color: #fff;
 }
 
+/*
 button {
   position: relative;
   display: inline-block;
@@ -67,5 +71,14 @@ button {
   
   
 }
+footer{
+  text-align: center;
+  background: #fff;
+  padding: 4em 0 ;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+  
+}
+*/
 
 

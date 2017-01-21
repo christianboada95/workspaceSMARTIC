@@ -3,21 +3,35 @@
     <img src="../../public/images/profile.png" draggable="false"></img>
     <span class="in-cl-userName">Carla Rodriguez</span>
     <span class="in-cl-userSchool">Corazones Felices</span>
-    
+  
     <form id="myLogin">
-      <div >
-        <input type="text" id="username" ng-model="username" placeholder="Documento">
+ <!--      <div class="input-field col s12">
+        <input type="text" id="username" class="validate" ng-model="username" placeholder="Documento">
+        <label for="username">Documento</label>
       </div>
-      <div >
+
+      <div class="input-field col s12">
         <input type="password"  id="password" ng-model="password" placeholder="Contraseña">
+        <label for="password">Password</label>
       </div>
+-->
+      <div class="input-field col s12">
+        <input id="userId" type="text" class="validate" ng-model="userId">
+        <label for="userId">Documento</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="password" type="password" class="validate" ng-model="password">
+        <label for="password">Password</label>
+      </div>
+
+      
 <!--
       <div class="checkbox">
         <label><input type="checkbox">Recordarme</label>
       </div>
 -->
       <div>
-        <button class="btn btn-default" ng-click="login()" >Entrar</button>
+        <button class="waves-effect waves-light btn" ng-click="login(userId, password)" >Entrar</button>
 <!--
         <button class="btn btn-default" ng-click="getUsers()" >get users</button>
         <button class="btn btn-default" ng-click="logout()" >Salir</button>
@@ -29,6 +43,21 @@
 </div>
 
 
-<footer>
-  
-</foofter>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2014 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+</footer>

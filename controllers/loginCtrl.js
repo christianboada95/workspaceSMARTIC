@@ -1,55 +1,64 @@
-app.controller("LoginController", function($scope, $http, $location, $cookies){ //, $location, $http
+app.controller("LoginController", function($scope, $http, $location, $cookies, loginService){ //, $location, $http
     
-   $scope.login = function(){
+   $scope.login = function(user, pass){
        
-       var username = $scope.username;
-       var password = $scope.password;
         $http({
           method: 'POST',
-          url: 'http://localhost/smartic/public/login',
+          url: 'http://138.197.43.95/login',
           data: {
-              "identifier": username,             //1082940074,
-              "password": password               //123
+              "identifier": user,             //1082940074,
+              "password": pass               //123
           }
         }).then(function successCallback(response) {
-            // this callback will be called asynchronously
-            // when the response isßß available
-            console.log("good");
             console.log(response);
             //busca el token en la respuesta del servidor
             var token = response.data.response.token;
             //almacena el token en localStorage
             //$cookie.put("logged-in", username);
-            localStorage.setItem("token", token);
-            console.log(token);
+            window.localStorage.setItem("token", token);
+            window.localStorage.setItem("user", JSON.stringify(response.data.response.user) )
             $location.path('/dashboard'); 
         }, function errorCallback(response) {
-            // called asynchronously if an error occurs
-            // or server returns response with an error status.
             $location.path('/login');
             console.log("bad");
             alert("error");
         });
    }
+   /*
+   $scope.login = function(user, pass) {
+    var authData = {};
+    authData.identifier = user;
+    authData.password  = pass;
+     console.log(authData);
+    loginService.login(authData, function(data) {
+      window.localStorage.setItem("token", data.response.token);
+      window.localStorage.setItem("user", JSON.stringify(data.response.user));
+      //$location.url('/dashboard');
+    });
+     
+  }*/
    
    
 });   
 
-app.controller("LogoutController", function($scope, $http, $location){
+app.controller("LogoutController", function($scope, $http, $location, $rootScope){
     
     $scope.logout = function() {
        
        $http({
           method: 'GET',
-          url: 'http://localhost/smartic/public/logout',
+          url: 'http://138.197.43.95/logout',
           headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
+              'Authorization': 'Bearer ' + window.localStorage.getItem('token')
           }
         }).then(function successCallback(response) {
           
             console.log("good");
             console.log(response);
-            
+            window.localStorage.removeItem("token");
+            window.localStorage.removeItem("user");
+            //$rootScope.authUser = '';
+            $location.path('/login');
           }, function errorCallback(response) {
          
             console.log("bad");
